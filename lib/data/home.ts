@@ -36,6 +36,8 @@ export const getAllLicenses = async () => {
       { expiresIn: "1h" }
     );
 
+    console.log("token: ", token);
+
     const response = await axios.get(`${MS_AlphaInshights_BASE_URL}/licenses`, {
       headers: { Authorization: `Bearer ${token}` },
     });

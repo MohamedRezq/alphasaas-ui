@@ -1,12 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { parseCookies, setCookie } from "nookies";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { redirect } from "next/navigation";
 //-----> Components <-----------------------------------------//
 import { HiBell } from "react-icons/hi";
 import Drawer from "react-modern-drawer";
 import Dropdown from "rc-dropdown";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { refreshToken } from "@/lib/auth/refreshToken";
 //-----> Assets <---------------------------------------------//
 import calendarIcon from "@/public/assets/img/icons/calendar.svg";
 import dropDownIcon from "@/public/assets/img/icons/arrow-down-sign-to-navigate.svg";
@@ -14,6 +17,7 @@ import Sidebar from "./Sidebar";
 import DropMenu_Items from "@/app/components/views/dashboard/DropMenu_Items";
 import DropMenu_User from "@/app/components/views/dashboard/DropMenu_User";
 import { dateFormatter } from "@/utils/dateFormatter";
+import { ACCESS_TOKEN_LIFETIME, REFRESH_TOKEN_LIFETIME } from "@/config";
 //----------------------------------------------------------------------------------//
 //-----> END OF IMPORTS <-------------------------------------//
 //----------------------------------------------------------------------------------//
@@ -26,13 +30,44 @@ type HeaderProps = {
 
 const Header = (props: HeaderProps) => {
   //----------------------------------------------------------------------------------//
+  const refreshTokenHandler = async (refresh_token: string) => {
+    const res = await refreshToken(refresh_token);
+    if (!res?.error) {
+      setCookie(null, "alpha_dashboard_access_token", res.auth_key, {
+        maxAge: ACCESS_TOKEN_LIFETIME, // Access token lifetime
+        // path: "/",
+      });
+      setCookie(null, "alpha_dashboard_refresh_token", res.refresh_key, {
+        maxAge: REFRESH_TOKEN_LIFETIME, // Refresh token lifetime
+        // path: "/",
+      });
+    }
+  };
+  //----------------------------------------------------------------------------------//
   const { theme, setTheme } = useTheme();
   useEffect(() => {}, [theme]);
-
   //----------------------------------------------------------------------------------//
   const [isMobileDrawerOpen, toggleMobileDrawer] = useState(false);
+  const [loading, setLoading] = useState(true);
   //----------------------------------------------------------------------------------//
-
+  useEffect(() => {
+    setLoading(true);
+    let {
+      alpha_dashboard_access_token,
+      alpha_dashboard_refresh_token,
+      alpha_dashboard_session,
+    } = parseCookies();
+    //--> If no session stored in cookies
+    if (!alpha_dashboard_session || !alpha_dashboard_refresh_token)
+      redirect(`/login`);
+    //--> Check if auth_key is still valid
+    if (!alpha_dashboard_access_token && alpha_dashboard_refresh_token) {
+      const newKeys = refreshTokenHandler(alpha_dashboard_refresh_token);
+      if (!newKeys) redirect(`/login`);
+    }
+    setLoading(false);
+  }, []);
+  //----------------------------------------------------------------------------------//
   return (
     <div className="w-full flex flex-col-reverse gap-y-3 items-center md:flex-row justify-between text-mineshaft dark:text-white">
       <div className="text-[30px] font-medium opacity-70 self-start md:self-auto mt-3">

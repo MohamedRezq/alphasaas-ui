@@ -14,6 +14,7 @@
     "jsonwebtoken": "^9.0.2",
     "next": "latest",
     "next-themes": "^0.2.1",
+    "nookies": "^2.5.2",
     "rc-dropdown": "^4.1.0",
     "rc-menu": "^9.12.0",
     "react": "latest",
