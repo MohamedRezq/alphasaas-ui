@@ -1,29 +1,17 @@
-"use client";
 import React from "react";
 import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
-//-----> Components <----------------------------------------------//
-import Dropdown from "rc-dropdown";
-import { BsThreeDots } from "react-icons/bs";
-//-----> Assets <----------------------------------------------//
 import Link from "next/link";
 import Image from "next/image";
 import {
   IAppAvatar,
   IDashboardDeptSummaryCard,
   IUserAvatar,
-} from "@/utils/types";
-import ChartMenu from "./DropMenu_ChartMenu";
+} from "@/utils/interfaces";
+import ChartMenu from "../menu/ChartMenu";
 import Tooltip from "@/app/components/common/Tooltip";
-//----------------------------------------------------------------------------------//
-//-----> END OF IMPORTS <-------------------------------------//
-//----------------------------------------------------------------------------------//
-
-//----------------------------------------------------------------------------------//
+//------------------------------------------------------------//
 
 const DeptSummaryCard = (props: IDashboardDeptSummaryCard) => {
-  //-------------------------------------------------------------------------//
-
-  //-------------------------------------------------------------------------//
   return (
     <div
       className="w-[285px] text-mineshaft dark:text-white rounded-2xl h-fit font-bold"
@@ -36,9 +24,7 @@ const DeptSummaryCard = (props: IDashboardDeptSummaryCard) => {
         >
           {props.title}
         </Link>
-        <Dropdown trigger={["click"]} overlay={ChartMenu} animation="slide-up">
-          <BsThreeDots className="absolute right-5 top-2 text-dovegray cursor-pointer text-base" />
-        </Dropdown>
+        <ChartMenu />
       </div>
       <div
         className={`h-fit pl-5 pr-3 bg-wildsand dark:bg-darkMineShaft text-white flex flex-col justify-between gap-y-1 whitespace-nowrap pt-[11px] pb-[29px] rounded-br-2xl rounded-bl-2xl`}

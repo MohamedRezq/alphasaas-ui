@@ -6,19 +6,23 @@ import Menu from "rc-menu";
 //-----> Redux <----------------------------------------------//
 // import { removeUser } from "@/src/store/slices/user";
 import Image from "next/image";
-import { dateFormatter } from "@/utils/dateFormatter";
 import { useTheme } from "next-themes";
+import { destroyCookie } from "nookies";
+import { dateFormatter } from "@/utils/formatters";
 //-----> Assets <---------------------------------------------//
 
 //----------------------------------------------------------------------------------//
 //-----> END OF IMPORTS <-------------------------------------//
 //----------------------------------------------------------------------------------//
 
-const DropMenu_User = ({ them }: { them: string }) => {
+const UserMenu = ({ them }: { them: string }) => {
   const router = useRouter();
   //----------------------------------------------------------------------------------//
   const handleUserLogout = () => {
-    router.push("/");
+    destroyCookie(null, "alpha_dashboard_session");
+    destroyCookie(null, "alpha_dashboard_access_token");
+    destroyCookie(null, "alpha_dashboard_refresh_token");
+    router.push(`/login`);
   };
   const { theme, setTheme } = useTheme();
   //----------------------------------------------------------------------------------//
@@ -96,4 +100,4 @@ const DropMenu_User = ({ them }: { them: string }) => {
   );
 };
 
-export default DropMenu_User;
+export default UserMenu;

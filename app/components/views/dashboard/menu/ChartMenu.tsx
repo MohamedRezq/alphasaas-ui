@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-//-----> Components <-----------------------------------------//
+import Dropdown from "rc-dropdown";
+import { BsThreeDots } from "react-icons/bs";
 import Menu, { Item as MenuItem } from "rc-menu";
-//----------------------------------------------------------------------------------//
-//-----> END OF IMPORTS <-------------------------------------//
-//----------------------------------------------------------------------------------//
+//----------------------------------------------------//
 
 const ChartMenu = () => {
   const menuItems = new Map([
@@ -13,7 +12,7 @@ const ChartMenu = () => {
     ["Edit", "/assets/img/icons/edit.svg"],
     ["Remove", "/assets/img/icons/delete.svg"],
   ]);
-  return (
+  const menu = (
     <Menu
       className="px-6"
       onSelect={(e) => {
@@ -50,6 +49,16 @@ const ChartMenu = () => {
         <>Remove</>
       </MenuItem>
     </Menu>
+  );
+  return (
+    <Dropdown
+      trigger={["click"]}
+      overlay={menu}
+      animation="slide-up"
+      placement="bottomLeft"
+    >
+      <BsThreeDots className="absolute right-5 top-2 text-dovegray cursor-pointer text-base" />
+    </Dropdown>
   );
 };
 

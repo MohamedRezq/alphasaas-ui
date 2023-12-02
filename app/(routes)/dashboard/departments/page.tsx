@@ -1,8 +1,8 @@
 import React from "react";
-import Selector from "@/app/components/views/dashboard/Selector";
+import Selector from "@/app/components/views/dashboard/menu/Selector";
 import { IDashboardDeptSummaryCard } from "@/utils/types";
 import { intervals } from "@/config";
-import DeptSummaryCard from "@/app/components/views/dashboard/DeptSummaryCard";
+import DeptSummaryCard from "@/app/components/views/dashboard/cards/DeptSummaryCard";
 //----------------------------------------------------------------------------------//
 //-----> END OF IMPORTS <-------------------------------------//
 //----------------------------------------------------------------------------------//

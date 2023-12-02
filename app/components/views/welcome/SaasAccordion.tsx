@@ -14,14 +14,15 @@ import {
 import Image from "next/image";
 import AccordionTickItem from "@/app/components/common/AccordionTickItem";
 import CheckBox from "@/app/components/common/CheckBox";
-import { IApiOrganizationApplication, ISaasCardProps } from "@/utils/types";
-import { integrableApplications } from "@/config";
+// import { IApiOrganizationApplication, ISaasCardProps } from "@/utils/types";
+// import { integrableApplications } from "@/config";
 //----------------------------------------------------------------------------------//
 //-----> END OF IMPORTS <-------------------------------------//
 //----------------------------------------------------------------------------------//
 
 interface ISaasAccordionProps {
-  card: ISaasCardProps;
+  // card: ISaasCardProps;
+  card: any;
   preExpand: boolean;
 }
 
@@ -30,28 +31,28 @@ export default function SaasAccordion(props: ISaasAccordionProps) {
   //----------------------------------------------------------------------------------//
   const [connected, setConnected] = useState(false);
   //----------------------------------------------------------------------------------//
-  const handleConnect = () => {
-    localStorage.setItem("application_id", props.card.id);
-    window.open(
-      integrableApplications.get(String(props.card.id)),
-      "_blank",
-      `location=yes,height=${
-        window.innerHeight * 0.75
-      },width=520,scrollbars=yes,status=yes`
-    );
-  };
-  useEffect(() => {
-    window.addEventListener("focus", async () => {
-      const apps: IApiOrganizationApplication[] = [];
-      if (apps) {
-        const filteredApp = apps.filter(
-          (app: IApiOrganizationApplication) =>
-            Number(app.application_id) == Number(props.card.id)
-        );
-        // if (filteredApp) setConnected(true);
-      }
-    });
-  }, []);
+  // const handleConnect = () => {
+  //   localStorage.setItem("application_id", props.card.id);
+  //   window.open(
+  //     integrableApplications.get(String(props.card.id)),
+  //     "_blank",
+  //     `location=yes,height=${
+  //       window.innerHeight * 0.75
+  //     },width=520,scrollbars=yes,status=yes`
+  //   );
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("focus", async () => {
+  //     const apps: IApiOrganizationApplication[] = [];
+  //     if (apps) {
+  //       const filteredApp = apps.filter(
+  //         (app: IApiOrganizationApplication) =>
+  //           Number(app.application_id) == Number(props.card.id)
+  //       );
+  //       // if (filteredApp) setConnected(true);
+  //     }
+  //   });
+  // }, []);
   //----------------------------------------------------------------------------------//
   //----------------------------------------------------------------------------------//
   return (
@@ -128,7 +129,7 @@ export default function SaasAccordion(props: ISaasAccordionProps) {
                       : "bg-[#B2B2B2]"
                   }  rounded-xl py-3 pr-3 pl-[14px] mt-4 text-white text-[10px] font-bold`}
                   disabled={!termsAgreement}
-                  onClick={() => handleConnect()}
+                  // onClick={() => handleConnect()}
                 >
                   Connect
                 </button>

@@ -1,44 +1,23 @@
-// pages/index.js
-import {
-  MS_AlphaInshights_BASE_URL,
-  MS_AlphaInsights_AUTH_SECRET_KEY,
-} from "@/config";
+// Home_Tab Data Fetchers
+import { MS_AlphaInsights_BASE_URL } from "@/config";
 import axios from "axios";
-import jwt from "jsonwebtoken";
 
-export const getTopSpendingDepartments = async () => {
+export const fetchAllLicenses = async (token: string) => {
   try {
-    const secretKey = MS_AlphaInsights_AUTH_SECRET_KEY;
-    const token = jwt.sign(
-      { username: "alphasaas@demo.io", organization_id: 1 },
-      secretKey,
-      { expiresIn: "1h" }
-    );
-
-    const response = await axios.post(
-      `${MS_AlphaInshights_BASE_URL}/stats/get-top-spending-departments`,
-      { organization_id: 1, time_interval: "last_year" },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    const response = await axios.get(`${MS_AlphaInsights_BASE_URL}/licenses`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
 
     return response.data;
   } catch (error) {
     console.error(error);
+    return [];
   }
 };
 
-export const getAllLicenses = async () => {
+export const fetchAllEmployees = async (token: string) => {
   try {
-    const secretKey = MS_AlphaInsights_AUTH_SECRET_KEY;
-    const token = jwt.sign(
-      { username: "alphasaas@demo.io", organization_id: 1 },
-      secretKey,
-      { expiresIn: "1h" }
-    );
-
-    console.log("token: ", token);
-
-    const response = await axios.get(`${MS_AlphaInshights_BASE_URL}/licenses`, {
+    const response = await axios.get(`${MS_AlphaInsights_BASE_URL}/employees`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 

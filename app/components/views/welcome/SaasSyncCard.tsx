@@ -3,7 +3,7 @@ import React, { useState } from "react";
 //-----> Components <-----------------------------------------//
 import { IoCloseSharp } from "react-icons/io5";
 import SpinnerLoader from "@/app/components/common/SpinnerLoader";
-import { ISaasCardProps } from "@/utils/types";
+import { ISaasCardProps } from "@/utils/interfaces";
 //----------------------------------------------------------------------------------//
 //-----> END OF IMPORTS <-------------------------------------//
 //----------------------------------------------------------------------------------//

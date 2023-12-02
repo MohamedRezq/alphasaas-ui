@@ -1,8 +1,8 @@
 import React from "react";
-import Selector from "@/app/components/views/dashboard/Selector";
+import Selector from "@/app/components/views/dashboard/menu/Selector";
 import { intervals } from "@/config";
 import CustomChartCard from "@/app/components/views/dashboard/CustomChartCard";
-import ChartDiagram from "@/app/components/views/dashboard/ChartDiagram";
+import ChartDiagram from "@/app/components/views/dashboard/charts/ChartDiagram";
 import TitleHR from "@/app/components/common/TitleHR";
 import OpportFinanceAlert from "@/app/components/views/dashboard/OpportFinanceAlert";
 import SimpleBubbleChart from "@/app/components/views/dashboard/charts/SimpleBubbleChart";

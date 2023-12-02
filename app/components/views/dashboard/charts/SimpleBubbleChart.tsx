@@ -1,4 +1,4 @@
-import { IBubble } from "@/utils/types";
+import { IBubble } from "@/utils/interfaces";
 import React from "react";
 import Tooltip from "@/app/components/common/Tooltip";
 

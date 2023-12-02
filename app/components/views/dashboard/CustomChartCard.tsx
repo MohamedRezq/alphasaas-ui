@@ -2,9 +2,8 @@
 import React from "react";
 import Dropdown from "rc-dropdown";
 import { BsThreeDots } from "react-icons/bs";
-import ChartMenu from "./DropMenu_ChartMenu";
-import ChartDiagram from "./ChartDiagram";
-import { ICustomChartCard } from "@/utils/types";
+import ChartMenu from "./menu/ChartMenu";
+import { ICustomChartCard } from "@/utils/interfaces";
 
 const CustomChartCard = (props: ICustomChartCard) => {
   return (

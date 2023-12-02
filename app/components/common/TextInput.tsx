@@ -19,8 +19,7 @@ const TextInput = (props: TextInputProps) => {
       <input
         id={`${props.id}`}
         type={`${props.type}`}
-        style={{ font: "normal normal bold 14px/18px Quicksand" }}
-        className="w-full px-5 py-3 text-sm rounded-2xl focus:outline focus:outline-seagreen font-bold bg-wildsand text-emperor text-opacity-95"
+        className="w-full px-5 py-3 text-[10pt] rounded-2xl focus:outline focus:outline-seagreen font-bold bg-wildsand text-emperor text-opacity-95"
         onChange={(e) => props.onChange(e.target.value)}
       />
     </div>

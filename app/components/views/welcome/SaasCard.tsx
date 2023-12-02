@@ -7,7 +7,7 @@ import {
   IApiOrganizationApplication,
   ISaasCardProps,
   integration_status,
-} from "@/utils/types";
+} from "@/utils/interfaces";
 //-----> END OF IMPORTS <-------------------------------------//
 
 const SaasCard = (props: ISaasCardProps) => {

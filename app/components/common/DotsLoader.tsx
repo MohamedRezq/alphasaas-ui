@@ -1,7 +1,7 @@
 import React from "react";
 import { ThreeDots } from "react-loader-spinner";
 
-const PageLoading = () => {
+const DotsLoader = () => {
   return (
     <div className="absolute top-0 left-0 bg-opacity-50 bg-slate-100 w-full h-full flex items-center justify-center">
       <ThreeDots
@@ -16,4 +16,4 @@ const PageLoading = () => {
   );
 };
 
-export default PageLoading;
+export default DotsLoader;

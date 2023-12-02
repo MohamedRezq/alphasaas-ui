@@ -15,9 +15,9 @@ import calendarIcon from "@/public/assets/img/icons/calendar.svg";
 import dropDownIcon from "@/public/assets/img/icons/arrow-down-sign-to-navigate.svg";
 import Sidebar from "./Sidebar";
 import DropMenu_Items from "@/app/components/views/dashboard/DropMenu_Items";
-import DropMenu_User from "@/app/components/views/dashboard/DropMenu_User";
-import { dateFormatter } from "@/utils/dateFormatter";
+import DropMenu_User from "@/app/components/views/dashboard/menu/UserMenu";
 import { ACCESS_TOKEN_LIFETIME, REFRESH_TOKEN_LIFETIME } from "@/config";
+import { dateFormatter } from "@/utils/formatters";
 //----------------------------------------------------------------------------------//
 //-----> END OF IMPORTS <-------------------------------------//
 //----------------------------------------------------------------------------------//

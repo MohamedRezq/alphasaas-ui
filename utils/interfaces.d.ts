@@ -6,13 +6,29 @@ export interface IUserCredentials {
 }
 
 export interface IStatsCardData {
-  mainTitle: string;
-  mainValue: number;
-  mainValueType: string;
-  subValues: {
-    value: number;
-    state: string;
-    title: string;
+  main_title: {
+    content: string | number;
+    metadata: {
+      color: string;
+    };
+  };
+  main_value: {
+    content: string | number;
+    metadata: {
+      color: string;
+    };
+  };
+  sub_titles: {
+    content: string | number;
+    metadata: {
+      color: string;
+    };
+  }[];
+  sub_values: {
+    content: string | number;
+    metadata: {
+      color: string;
+    };
   }[];
 }
 
@@ -25,8 +41,12 @@ export interface IHomeChartCardData {
     title: string;
   }[];
   diagram: {
-    type: string;
-    data: any;
+    type: any;
+    data: {
+      xAxis: string[];
+      yAxis: any[];
+      colors: string[];
+    };
     // size: number; // col-span:(1 or 2)
   };
 }

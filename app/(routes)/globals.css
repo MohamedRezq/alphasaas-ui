@@ -202,3 +202,29 @@ body {
   background: #2acb48;
   border-radius: 4px;
 }
+
+
+.overlay-locked-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 16px;
+  background: #F4F4F4 0% 0% no-repeat padding-box; /* Change the gradient colors as needed */
+  opacity: 0.9; /* Adjust the opacity as needed */
+  backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+}
+
+.overlay-locked-card::after {
+  content: url('../../public/assets/img/lock-icon.svg'); /* Unicode for a lock icon, you can change it to your preferred icon */
+  font-size: 24px; /* Adjust the icon size as needed */
+  color: white; /* Icon color */
+  position: absolute;
+  bottom: 20px; /* Adjust the distance from the bottom as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}

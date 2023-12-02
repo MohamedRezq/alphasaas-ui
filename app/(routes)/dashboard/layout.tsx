@@ -3,12 +3,8 @@ import Sidebar from "@/app/components/layout/Sidebar";
 
 export default async function DashboardLayout({
   children,
-  params,
-  searchParams,
 }: {
   children: React.ReactNode;
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   return (
     <main className="w-full dark:bg-darkBg dark:text-white flex gap-x-6 m-auto px-[15px] lg:px-4 py-3 bg-bgWildsand font-medium">
