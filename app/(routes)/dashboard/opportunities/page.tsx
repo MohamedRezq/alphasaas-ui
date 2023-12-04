@@ -1,6 +1,5 @@
 import React from "react";
 import Selector from "@/app/components/views/dashboard/menu/Selector";
-import { intervals } from "@/config";
 import CustomChartCard from "@/app/components/views/dashboard/CustomChartCard";
 import ChartDiagram from "@/app/components/views/dashboard/charts/ChartDiagram";
 import TitleHR from "@/app/components/common/TitleHR";
@@ -11,6 +10,7 @@ import SimpleBubbleChart from "@/app/components/views/dashboard/charts/SimpleBub
 //----------------------------------------------------------------------------------//
 
 export default function OpportPage() {
+  const intervals = ["All Time", "Last 6 Months", "Last Year"];
   //-------------------------------------------------------------------------//
   //-------------------------------------------------------------------------//
 
@@ -36,7 +36,7 @@ export default function OpportPage() {
               <span className="text-[#FF6C6C]">$12,000</span>
             </div>
           }
-          diagram={<ChartDiagram />}
+          diagram={<></>}
           size={2}
         />
         <CustomChartCard

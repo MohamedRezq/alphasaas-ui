@@ -1,12 +1,12 @@
 import CustomTable from "@/app/components/views/dashboard/tables/CustomTable";
-import { getAllEmployees } from "@/lib/data/home";
+import { fetchAllEmployees } from "@/lib/data/home";
 import React from "react";
 //----------------------------------------------------------------------------------//
 //-----> END OF IMPORTS <-------------------------------------//
 //----------------------------------------------------------------------------------//
 
 export default async function ApplicationOverviewPage() {
-  const data = await getAllEmployees();
+  const data = await fetchAllEmployees("");
   //-------------------------------------------------------------------------//
   return (
     <div>

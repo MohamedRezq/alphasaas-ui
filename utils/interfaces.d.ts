@@ -32,22 +32,25 @@ export interface IStatsCardData {
   }[];
 }
 
-export interface IHomeChartCardData {
-  header: string;
-  mainTitle: string;
-  mainValue: number;
-  subValues: {
-    value: number;
-    title: string;
-  }[];
-  diagram: {
-    type: any;
-    data: {
-      xAxis: string[];
-      yAxis: any[];
-      colors: string[];
+export interface IHomeChartResponse {
+  status: number;
+  locked: boolean;
+  data: {
+    cardHeader: string;
+    mainHeader: string;
+    mainValue: string;
+    subHeaders: {
+      value: string;
+      title: string;
+    }[];
+    diagram: {
+      type: any;
+      data: {
+        xAxis: string[];
+        yAxis: any[];
+        colors: string[];
+      };
     };
-    // size: number; // col-span:(1 or 2)
   };
 }
 
